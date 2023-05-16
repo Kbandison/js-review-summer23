@@ -81,19 +81,23 @@ console.log(reduceArrQuantity);
 // quantity * price
 
 // with a return / curly brace
-const reduceArrTotalPrice = productArr.reduce((accumulator, element) => {
-  let total = accumulator + element.quantity * element.price;
-  return total;
+const reduceArrPriceReturn = productArr.reduce((accumulator, element) => {
+  accumulator += element.quantity * element.price;
+  return accumulator;
 }, 0);
 
 // single line version
-const reduceArrTotalPriceSingle = productArr.reduce(
-  (accumulator, element) => accumulator + element.quantity * element.price,
+const reduceArrPriceSingle = productArr.reduce(
+  (accumulator, element) => (accumulator += element.quantity * element.price),
   0
 );
+
+console.log("!@-------reduceArrPrice-------@!");
+console.log(reduceArrPriceReturn);
+console.log(reduceArrPriceSingle);
 
 console.log("!@-------reduceArrTotalPrice-------@!");
 console.log(reduceArrTotalPrice);
 
 console.log("!@-------reduceArrTotalPriceSingle-------@!");
-console.log(reduceArrTotalPriceSingle);
+console.log(reduceArrPriceSingle);
